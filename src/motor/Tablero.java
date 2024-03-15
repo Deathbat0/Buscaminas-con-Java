@@ -79,7 +79,10 @@ public class Tablero {
      * @return TRUE si la posición es adecuada en el tablero, FALSE si no lo es.
      */
     public boolean esPosicionValida(byte fila, byte columna){
-         
+         if((fila <= this.cantFilas-1 && fila >= 0) && (columna <= this.cantColumnas-1 && columna >= 0)){
+        	 return true;
+         }
+         return false;
     }
     
     /**
@@ -95,7 +98,23 @@ public class Tablero {
      * @param columna La columna en que está la celda.
      */
     public void asignarBomba(boolean tieneBomba, byte fila, byte columna){
-        
+        if(tieneBomba){
+        	if(esPosicionValida(fila, columna)){
+        		if(this.celdas[fila][columna].tieneBomba()){
+        			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()+1));
+        		}else{
+        			this.celdas[fila][columna] = new Celda(true, EstadoCelda.OCULTA, (byte)0);
+        		}
+        }else{
+        	if(esPosicionValida(fila, columna)){
+        		if(!this.celdas[fila][columna].tieneBomba()){
+        			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()-1));
+        		}else{
+        			this.celdas[fila][columna] = new Celda(false, EstadoCelda.OCULTA, (byte)0);
+        		}	
+        	}
+        }
+        }
     }
     
     /**

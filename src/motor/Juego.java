@@ -46,7 +46,7 @@ public class Juego {
     }
     
     public EstadoJuego getEstado(){
-
+    	return this.estado;
     }
     
     /**
@@ -56,7 +56,7 @@ public class Juego {
      * @return El estado de la celda en la posicón p.
      */
     public Celda.EstadoCelda getEstadoCelda(Posicion p){
-
+    	return this.getEstadoCelda(p);
     }
     
     /**
@@ -84,7 +84,7 @@ public class Juego {
      * @return La cantidad de filas del tablero.
      */
     public byte getFilas(){
-        
+        return this.getFilas();
     }
     
     /**
@@ -100,7 +100,7 @@ public class Juego {
      * @return La cantidad de minas.
      */
     public int getMinas(){
-        
+        return this.bombas;
     }
     
     /**
@@ -108,7 +108,7 @@ public class Juego {
      * @return La cantidad de celdas marcadas.
      */
     public int getCeldasMarcadas(){
-        
+        return this.marcadas;
     }
     
     /**
@@ -116,7 +116,7 @@ public class Juego {
      * @return La cantidad de celdas descubiertas.
      */
     public int getCeldasDescubiertas(){
-        
+        return this.descubiertas;
     }
     
     /**
