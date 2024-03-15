@@ -13,7 +13,8 @@ public class Posicion {
      * @param columna La columna de la posicíon o coordenada.
      */
     public Posicion(byte fila, byte columna){
-
+    	this.fila = fila;
+    	this.columna = columna;
     }
 
     /**
@@ -21,7 +22,7 @@ public class Posicion {
      * @return La fila.
      */
     public byte getFila() {
-
+    	return this.fila;
     }
 
     /**
@@ -29,7 +30,7 @@ public class Posicion {
      * @param fila La fila de la coordenada.
      */
     public void setFila(byte fila) {
-
+    	this.fila = fila;
     }
 
     /**
@@ -37,10 +38,10 @@ public class Posicion {
      * @return La columna de la posición.
      */
     public byte getColumna() {
-
+    	return this.columna;
     }
 
     public void setColumna(byte columna) {
-
+    	this.columna = columna;
     }
 }

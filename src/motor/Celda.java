@@ -23,7 +23,9 @@ public class Celda {
      * @param bombasCircundantes La cantidad de bombas que hay alrededor de la celda.
      */
     public Celda(boolean tieneBomba, EstadoCelda estado, byte bombasCircundantes) {
-
+    	this.tieneBomba = tieneBomba;
+    	this.estado = estado;
+    	this.bombasCircundantes = bombasCircundantes;
     }
 
     /**
@@ -31,7 +33,7 @@ public class Celda {
      * @return TRUE si la celda tiene bomba, FALSE si no.
      */
     public boolean tieneBomba() {
-
+    	return this.tieneBomba;
     }
 
     /**
@@ -39,7 +41,7 @@ public class Celda {
      * @param tieneBomba TRUE para indicar si tiene bomba, FALSE si no.
      */
     public void setTieneBomba(boolean tieneBomba) {
-
+    	this.tieneBomba = tieneBomba;
     }
 
     /**
@@ -47,7 +49,7 @@ public class Celda {
      * @return El estado actual de la celda.
      */
     public EstadoCelda getEstado() {
-
+    	return this.estado;
     }
 
     /**
@@ -55,7 +57,7 @@ public class Celda {
      * @param estado El nuevo estado de la celda.
      */
     public void setEstado(EstadoCelda estado) {
-
+    	this.estado = estado;
     }
 
     /**
@@ -63,7 +65,7 @@ public class Celda {
      * @return La cantidad de minas que hay alrededor de la celda.
      */
     public byte getBombasCircundantes() {
-
+    	return this.bombasCircundantes;
     }
 
     /**
@@ -71,6 +73,6 @@ public class Celda {
      * @param bombasCircundantes La cantidad de bombas circundantes.
      */
     public void setBombasCircundantes(byte bombasCircundantes) {
-
+    	this.bombasCircundantes = bombasCircundantes;
     }
 }

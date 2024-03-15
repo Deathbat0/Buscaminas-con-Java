@@ -1,5 +1,7 @@
 package motor;
 
+import motor.Celda.*;
+
 /**
  * Representa un tablero del juego Buscaminas como una grilla de objetos de tipo
  * {@link Celda}. Se definen además las constantes que se usarán para definir los
@@ -7,16 +9,17 @@ package motor;
  * @author DeathbatO
  */
 public class Tablero {
-        //Valores predefinidos para las dimensiones maximas y minimas del tablero
+    //Valores predefinidos para las dimensiones maximas y minimas del tablero
     public static byte
         MIN_ANCHO=5,
         MIN_LARGO=5,
         MAX_ANCHO=100,
         MAX_LARGO=100; 
 
-    //El tablero: una grilla con topes (tal como hicimos en el Juego de la Vida).
+    //El tablero: una grilla con topes.
     private final Celda[][] celdas;
     private int cantidadMinas;
+    private byte cantFilas, cantColumnas;
     
     /**
      * Crea un nuevo tablero con las dimensiones indicadas. Las celdas del mismo
@@ -27,7 +30,30 @@ public class Tablero {
      * @param cantidadColumnas La cantidad de columnas que contendrá el tablero.
      */
     public Tablero(byte cantidadFilas, byte cantidadColumnas){
+    	
+        if(cantidadFilas < MIN_ANCHO){
+        	this.cantFilas = MIN_ANCHO;
+        }
+        if(cantidadColumnas < MIN_LARGO){
+        	this.cantColumnas = MIN_LARGO;
+        }
+        if(cantidadFilas > MAX_ANCHO){
+        	this.cantFilas = MAX_ANCHO;
+        }
+        if(cantidadColumnas > MAX_LARGO){
+        	this.cantColumnas = MAX_LARGO;
+        }
         
+        this.celdas = new Celda[cantidadFilas][cantidadColumnas];
+
+        // Inicializar todas las celdas como ocultas y sin minas
+        for (int i = 0; i < this.cantFilas; i++) {
+            for (int j = 0; j < this.cantColumnas; j++) {
+                this.celdas[i][j] = new Celda(false, EstadoCelda.OCULTA, (byte)0);
+            }
+        }
+        
+        this.cantidadMinas = 0;
     }
     
     /**
@@ -35,7 +61,7 @@ public class Tablero {
      * @return La cantidad de columnas en el tablero.
      */
     public byte getLargo(){
-        
+        return this.cantColumnas;
     }
     
     /**
@@ -43,7 +69,7 @@ public class Tablero {
      * @return La cantidad de filas del tablero.
      */
     public byte getAncho(){
-        
+        return this.cantFilas;
     }
     
     /**
@@ -80,7 +106,7 @@ public class Tablero {
      * @return La celda en la posición dada.
      */
     public Celda getCelda(byte fila, byte columna){
-        
+        return this.celdas[fila][columna];
     }
     
     /**
@@ -88,7 +114,7 @@ public class Tablero {
      * @return La cantidad de celdas en el tablero.
      */
     public int getCantidadCeldas(){
-        
+        return (int)(this.cantColumnas * this.cantColumnas);
     }
     
     /**
@@ -96,6 +122,6 @@ public class Tablero {
      * @return La cantidad de minas en el tablero.
      */
     public int getCantidadMinas(){
-        
+        return this.cantidadMinas;
     }
 }
