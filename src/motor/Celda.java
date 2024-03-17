@@ -6,7 +6,7 @@ package motor;
  * (bombas) circundantes.
  * @author DeathbatO
  */
-public class Celda {
+public class Celda{
     /**
      * Tipo que establece los posibles estados de una celda.
      */

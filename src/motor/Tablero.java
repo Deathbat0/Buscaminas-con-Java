@@ -103,14 +103,14 @@ public class Tablero {
         		if(this.celdas[fila][columna].tieneBomba()){
         			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()+1));
         		}else{
-        			this.celdas[fila][columna] = new Celda(true, EstadoCelda.OCULTA, (byte)0);
+        			this.celdas[fila][columna].setTieneBomba(true);
         		}
         }else{
         	if(esPosicionValida(fila, columna)){
         		if(!this.celdas[fila][columna].tieneBomba()){
         			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()-1));
         		}else{
-        			this.celdas[fila][columna] = new Celda(false, EstadoCelda.OCULTA, (byte)0);
+        			this.celdas[fila][columna].setTieneBomba(false);
         		}	
         	}
         }

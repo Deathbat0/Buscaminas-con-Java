@@ -372,7 +372,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ActionListen
             return;
         }
                 
-        CeldaVisual cv= (CeldaVisual)e.getSource();
+        CeldaVisual cv = (CeldaVisual)e.getSource();
         switch (e.getButton()) {
             case MouseEvent.BUTTON1:
                 this.game.descubrir(cv.getPosicion());

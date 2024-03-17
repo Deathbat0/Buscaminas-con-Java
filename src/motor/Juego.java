@@ -42,13 +42,44 @@ public class Juego {
      * @param cantidadBombas La cantidad de minas, entre 0 y cantidadFilas*cantidadColumnas.
      */
     public Juego(byte cantidadFilas, byte cantidadColumnas, int cantidadBombas){
-        
+        this.estado = EstadoJuego.JUGANDO;
+        this.tablero = new Tablero(cantidadFilas, cantidadColumnas);
+        if(cantidadBombas <= 0 || cantidadBombas > cantidadColumnas*cantidadFilas){
+        	this.bombas = MINAS_FACIL;
+        }else{
+        	this.bombas = cantidadBombas;
+        }
+        repartirMinas();
+    }
+    /**
+     * Esta operación aumentará en 1 la cantidad de minas circundantes de todas las 
+     * celdas alrededor de la posición dada
+     * @param p - Posicion de la mina
+     */
+    private void aumentarMinasCircundantesAlRededor(Posicion p){
+    	this.tablero.getCelda(p.getFila(), p.getColumna()).setBombasCircundantes(
+    			(byte)(this.tablero.getCelda(p.getFila(), p.getColumna()).getBombasCircundantes()+1));
+    }
+    /**
+     *  Se encargaría de repartir todas las minas al azar por el tablero. 
+     *  Cada vez que una celda se marque con una mina, se invoca a la operación 
+     *  {@link aumentarMinasCircundantesAlRededor} sobre la posición de la celda actua
+     */
+    private void repartirMinas(){
+    	int bombtemp = this.bombas;
+    	while(bombtemp > 0) {
+    		Random rd = new Random();
+    		int randomFila = rd.nextInt((int)this.tablero.getAncho()-1);
+    		int randomColumna = rd.nextInt((int)this.tablero.getLargo()-1);
+    		this.tablero.asignarBomba(this.tablero.getCelda((byte)randomFila, (byte)randomColumna).tieneBomba(), (byte)randomFila, (byte)randomColumna);
+    		aumentarMinasCircundantesAlRededor(new Posicion((byte)randomFila,(byte)randomColumna));
+    		bombtemp--;
+    	}
     }
     
     public EstadoJuego getEstado(){
     	return this.estado;
     }
-    
     /**
      * Retorna el estado de la celda en la posicón p dada.
      * <br><br><b>PRECONDICION:</b> La posicíon es válida.
@@ -66,7 +97,7 @@ public class Juego {
      * @return TRUE si tiene mina, FALSE si no.
      */
     public boolean tieneBomba(Posicion p){
-
+    	return this.tablero.getCelda(p.getFila(),p.getColumna()).tieneBomba();
     }
     
     /**
@@ -76,7 +107,7 @@ public class Juego {
      * @return La cantidad de minas que circundan a la celda en cuestión.
      */
     public int getMinasCircundantes(Posicion p){
-        
+        return this.tablero.getCelda(p.getFila(), p.getColumna()).getBombasCircundantes();
     }
     
     /**
@@ -84,7 +115,7 @@ public class Juego {
      * @return La cantidad de filas del tablero.
      */
     public byte getFilas(){
-        return this.getFilas();
+        return this.tablero.getAncho();
     }
     
     /**
@@ -92,7 +123,7 @@ public class Juego {
      * @return La cantidad de columnas.
      */
     public byte getColumnas(){
-        
+        return this.tablero.getLargo();
     }
     
     /**
@@ -176,7 +207,7 @@ public class Juego {
      * @return La cantidad de circundantes marcadas para la celda en la posición p.
      */
     public int getCircundantesMarcadas(Posicion p){
-
+    	
     }
     
     /**
