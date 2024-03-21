@@ -101,16 +101,16 @@ public class Tablero {
         if(tieneBomba){
         	if(esPosicionValida(fila, columna)){
         		if(this.celdas[fila][columna].tieneBomba()){
-        			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()+1));
+        			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()-1));
         		}else{
-        			this.celdas[fila][columna].setTieneBomba(true);
+        			this.celdas[fila][columna].setTieneBomba(false);
         		}
         }else{
         	if(esPosicionValida(fila, columna)){
         		if(!this.celdas[fila][columna].tieneBomba()){
-        			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()-1));
+        			this.celdas[fila][columna].setBombasCircundantes((byte)(this.celdas[fila][columna].getBombasCircundantes()+1));
         		}else{
-        			this.celdas[fila][columna].setTieneBomba(false);
+        			this.celdas[fila][columna].setTieneBomba(true);
         		}	
         	}
         }
