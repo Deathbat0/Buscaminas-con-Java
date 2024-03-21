@@ -22,7 +22,7 @@ public class Celda{
      * @param estado El estado actual de la celda.
      * @param bombasCircundantes La cantidad de bombas que hay alrededor de la celda.
      */
-    public Celda(boolean tieneBomba, EstadoCelda estado, byte bombasCircundantes) {
+    public Celda(boolean tieneBomba, EstadoCelda estado, byte bombasCircundantes){
     	this.tieneBomba = tieneBomba;
     	this.estado = estado;
     	this.bombasCircundantes = bombasCircundantes;
@@ -32,7 +32,7 @@ public class Celda{
      * Indica si la celda tiene bomba (mina).
      * @return TRUE si la celda tiene bomba, FALSE si no.
      */
-    public boolean tieneBomba() {
+    public boolean tieneBomba(){
     	return this.tieneBomba;
     }
 
@@ -40,7 +40,7 @@ public class Celda{
      * La celda se marcará como celda con bomba si se pasa TRUE, o sin bomba si se pasa FALSE.
      * @param tieneBomba TRUE para indicar si tiene bomba, FALSE si no.
      */
-    public void setTieneBomba(boolean tieneBomba) {
+    public void setTieneBomba(boolean tieneBomba){
     	this.tieneBomba = tieneBomba;
     }
 
@@ -48,7 +48,7 @@ public class Celda{
      * Indica el estado de la celda.
      * @return El estado actual de la celda.
      */
-    public EstadoCelda getEstado() {
+    public EstadoCelda getEstado(){
     	return this.estado;
     }
 
@@ -56,7 +56,7 @@ public class Celda{
      * Asigna un nuevo estado a la celda.
      * @param estado El nuevo estado de la celda.
      */
-    public void setEstado(EstadoCelda estado) {
+    public void setEstado(EstadoCelda estado){
     	this.estado = estado;
     }
 
@@ -64,7 +64,7 @@ public class Celda{
      * Retorna la cantdiad de bombas circundantes de la celda.
      * @return La cantidad de minas que hay alrededor de la celda.
      */
-    public byte getBombasCircundantes() {
+    public byte getBombasCircundantes(){
     	return this.bombasCircundantes;
     }
 
@@ -72,7 +72,7 @@ public class Celda{
      * Asigna la cantidad de bombas circundantes a la celda.
      * @param bombasCircundantes La cantidad de bombas circundantes.
      */
-    public void setBombasCircundantes(byte bombasCircundantes) {
+    public void setBombasCircundantes(byte bombasCircundantes){
     	this.bombasCircundantes = bombasCircundantes;
     }
 }

@@ -21,7 +21,7 @@ public class Posicion {
      * Retorna la fila de coordenada.
      * @return La fila.
      */
-    public byte getFila() {
+    public byte getFila(){
     	return this.fila;
     }
 
@@ -29,7 +29,7 @@ public class Posicion {
      * Asigna la fila de la coordenada. Si esta es menor que 0 se establece en cero. 
      * @param fila La fila de la coordenada.
      */
-    public void setFila(byte fila) {
+    public void setFila(byte fila){
     	this.fila = fila;
     }
 
@@ -37,11 +37,11 @@ public class Posicion {
      * La columna de la coordenada o posición.
      * @return La columna de la posición.
      */
-    public byte getColumna() {
+    public byte getColumna(){
     	return this.columna;
     }
 
-    public void setColumna(byte columna) {
+    public void setColumna(byte columna){
     	this.columna = columna;
     }
 }

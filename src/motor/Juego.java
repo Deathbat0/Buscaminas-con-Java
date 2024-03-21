@@ -297,8 +297,27 @@ public class Juego {
      * @param p La posición de la celda cuyas circundantes se desea marcar.
      */
     public void marcarCircundantes(Posicion p){
-    	if(this.tablero.esPosicionValida(p.getFila(), p.getColumna())){
-    		
+    	int cantidadCirc = 0;
+    	if(this.tablero.esPosicionValida(p.getFila(), p.getColumna()) && 
+    			(this.tablero.getCelda(p.getFila(), p.getColumna()).getEstado() == EstadoCelda.DESCUBIERTA)){
+    		for(int i = p.getFila()-1; i <= p.getFila()+1; i++){
+    			for(int j = p.getColumna()-1; j <= p.getColumna()+1; j++){
+    				if(this.tablero.getCelda((byte)i, (byte)j).getEstado() != EstadoCelda.DESCUBIERTA){
+    					cantidadCirc++;
+    				}
+    			}
+    		}
+    		if(this.tablero.getCelda(p.getFila(), p.getColumna()).getBombasCircundantes() == cantidadCirc){
+    			for(int i = p.getFila()-1; i <= p.getFila()+1; i++){
+        			for(int j = p.getColumna()-1; j <= p.getColumna()+1; j++){
+        				if((byte)i == p.getFila() && (byte)j == p.getColumna()){
+        					return;
+        				}else{
+        					this.tablero.getCelda((byte)i, (byte)j).setEstado(EstadoCelda.MARCADA);
+        				}
+        			}
+        		}
+    		}
     	}
     	return;
     }
@@ -308,6 +327,17 @@ public class Juego {
         aún esté OCULTA y que además no tenga mina (bomba).
      */
     public void descubrirSegura(){
-
+    	int randomFila, randomColumna;
+    	boolean nodescubierta = true;
+    	while(nodescubierta){
+    		randomFila = rd.nextInt(this.tablero.getAncho());
+    		randomColumna = rd.nextInt(this.tablero.getLargo());
+	    	if((!this.tablero.getCelda((byte)randomFila, (byte)randomColumna).tieneBomba())&&
+	    			(this.tablero.getCelda((byte) randomFila, (byte)randomColumna).getEstado() == EstadoCelda.OCULTA)){
+	    		descubrir(new Posicion((byte)randomFila, (byte)randomColumna));
+	    		nodescubierta = false;
+	    	}
+    	}
+    	return;
     }
 }

@@ -3,7 +3,6 @@ package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,8 +11,16 @@ import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 import motor.*;
 
+/**
+ * Ventana principal del juego que se inicia con una dificultad en F
+ * @author DeathbatO
+ */
+
 public class VentanaPrincipal extends javax.swing.JFrame implements ActionListener, MouseInputListener{
 	
+	/**
+	 * 
+	 */
 	private static final int ANCHO_DEFECTO = 800;
 	private static final int LARGO_DEFECTO = 600;
 	
@@ -39,7 +46,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ActionListen
 		icono1, icono2, icono3, icono4, icono5, icono6, icono7, icono8;
 	
 	public VentanaPrincipal(){
-		initComponents();
 		this.iconoBomba = new ImageIcon(getClass().getResource("/mina.png"));
 		this.iconoBandera = new ImageIcon(getClass().getResource("/marca.png"));
 		this.iconoBombaExplota = new ImageIcon(getClass().getResource("/minaExplota.png"));
@@ -129,7 +135,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ActionListen
                         }
                     }
 
-                    switch (this.game.getEstadoCelda(new Posicion((byte)i,(byte)j))){
+                    switch(this.game.getEstadoCelda(new Posicion((byte)i,(byte)j))){
                         case MARCADA: ((JButton)this.vistaTablero[i][j]).setIcon(iconoBandera); break;
                         case DESCUBIERTA: ((JButton)this.vistaTablero[i][j]).setEnabled(false); break;
                     }

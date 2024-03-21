@@ -31,16 +31,16 @@ public class Tablero {
      */
     public Tablero(byte cantidadFilas, byte cantidadColumnas){
     	
-        if(cantidadFilas < MIN_ANCHO){
+        if(cantidadFilas <= MIN_ANCHO){
         	this.cantFilas = MIN_ANCHO;
         }
-        if(cantidadColumnas < MIN_LARGO){
+        if(cantidadColumnas <= MIN_LARGO){
         	this.cantColumnas = MIN_LARGO;
         }
-        if(cantidadFilas > MAX_ANCHO){
+        if(cantidadFilas >= MAX_ANCHO){
         	this.cantFilas = MAX_ANCHO;
         }
-        if(cantidadColumnas > MAX_LARGO){
+        if(cantidadColumnas >= MAX_LARGO){
         	this.cantColumnas = MAX_LARGO;
         }
         

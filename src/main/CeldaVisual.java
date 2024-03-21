@@ -5,6 +5,7 @@ import motor.Posicion;
 
 
 /**
+ * Crea una celda individual
  * @author DeathabtO
  */
 

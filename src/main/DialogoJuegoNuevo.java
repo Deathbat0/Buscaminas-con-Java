@@ -3,6 +3,7 @@ package main;
 import motor.Juego;
 
 /**
+ * Ventana para seleccionar un nuevo juego y configurar la dificultad
  * @author DeathabtO
  */
 
@@ -284,13 +285,13 @@ public class DialogoJuegoNuevo extends javax.swing.JDialog {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex){
             java.util.logging.Logger.getLogger(DialogoJuegoNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex){
             java.util.logging.Logger.getLogger(DialogoJuegoNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex){
             java.util.logging.Logger.getLogger(DialogoJuegoNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex){
             java.util.logging.Logger.getLogger(DialogoJuegoNuevo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
