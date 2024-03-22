@@ -6,7 +6,7 @@ agregaremos al juego.
 
 <div style="display: flex;">
     <div style="flex: 30%; padding: 5px;">
-        <img src="images/im1.jpg" alt="Imagen" style="width: 100%;">
+        <img src="images/im1.jpg" alt="Imagen" style="width: 300px;">
     </div>
     <div style="flex: 70%; padding: 5px;">
         <p>Se muestran además en la ventana los menús Juego, Acciones y Opciones.
