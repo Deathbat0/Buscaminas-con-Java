@@ -44,6 +44,8 @@ public class Tablero {
         	this.cantColumnas = MAX_LARGO;
         }
         
+        this.cantFilas = cantidadFilas;
+        this.cantColumnas = cantidadColumnas;
         this.celdas = new Celda[cantidadFilas][cantidadColumnas];
 
         // Inicializar todas las celdas como ocultas y sin minas
